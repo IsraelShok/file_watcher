@@ -1,0 +1,64 @@
+version: '3.9'
+services:
+  rabbitmq:
+    container_name: "rabbitmq"
+    hostname: "rabbitmq"
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - "./rabbitmq_data:/var/lib/rabbitmq"
+    networks:
+      - messaging_network
+
+  postgres:
+    container_name: "postgres"
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASE}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - messaging_network
+
+  watcher:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile-watcher
+    depends_on:
+      - rabbitmq
+      - postgres
+    networks:
+      - messaging_network
+    volumes:
+      - ${PATH_TO_WATCH}:${FILES_FOLDER}
+    environment:
+      - PYTHONUNBUFFERED=1
+
+  consumer:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile-consumer
+    depends_on:
+      - rabbitmq
+      - postgres
+    networks:
+      - messaging_network
+    volumes:
+      - ${PATH_TO_WATCH}:${FILES_FOLDER}
+    environment:
+      - PYTHONUNBUFFERED=1
+
+networks:
+  messaging_network:
+    driver: bridge
+
+volumes:
+  postgres-data:

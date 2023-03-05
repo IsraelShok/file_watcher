@@ -1,0 +1,19 @@
+# Use an official Python runtime as a parent image
+FROM python:3.8
+
+# install dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# copy project and common
+COPY Services/Watcher/ .
+COPY Common ./Common
+
+# copy .env
+COPY .env .env
+
+# Make port 80 available to the world outside this container
+EXPOSE 80
+
+# run the command
+CMD ["python", "main.py"]
