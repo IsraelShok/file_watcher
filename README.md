@@ -45,7 +45,7 @@ To run the tests for this application, navigate to the project directory in your
 `python -m unittest`
 
 # Logs
-To see the logs, in the same watch dir, will be created a "logs" folder that contains "log.txt" and "db_status.csv".
+To see the logs, in the same watch dir, will be created a "logs" folder that contains "log.txt" and "db_status.csv" (Current status of the DB).
 
 Also, there are print logs in each container.
 
@@ -60,10 +60,11 @@ For example:
 
 # Built With
 Python
+
 Watchdog
+
 Docker
+
 PostgreSQL
 
-# Acknowledgments
-This application was built using the Watchdog library.
-This project was completed as part of an assignment for a software engineering course.
+RabbitMQ
