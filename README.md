@@ -1,11 +1,19 @@
 # File Watcher
 This is a file watcher application that monitors a specified directory for changes, and logs them to a database and a log file.
 
+If there are 2 identical files (same content), the handler will change the latest file to <original_file_name>_DUP_#.
+
+For example:
+
+<img width="759" alt="image" src="https://user-images.githubusercontent.com/18027980/222963889-ad49a598-8ac7-4f4e-8de8-df1cb696a996.png">
+
+
+This is a file watcher application that monitors a specified directory for changes, and logs them to a database and a log file.
 # Getting Started
 To get started with this application, follow the instructions below.
 
 # Prerequisites
-To run this application, you will need to have Docker installed on your machine. You can download Docker from the official website here.
+To run this application, you will need to have Docker installed on your machine. You can download Docker from the official website.
 
 # Installing
 Clone this repository to your local machine.
