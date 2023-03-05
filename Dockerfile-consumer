@@ -1,13 +1,14 @@
 # Use an official Python runtime as a parent image
 FROM python:3.8
 
+WORKDIR app
+
 # install dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # copy project
-COPY Services/Consumer/ .
-COPY Common ./Common
+COPY . .
 
 # copy .env
 COPY .env .env
@@ -16,4 +17,4 @@ COPY .env .env
 EXPOSE 80
 
 # run the command
-CMD ["python", "main.py"]
+CMD ["python", "ConsumerMain.py"]

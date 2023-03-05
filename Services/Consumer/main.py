@@ -2,11 +2,11 @@ import json
 import os
 
 from dotenv import load_dotenv
-from HandleMessage import HandleMessage
 
 from Common.Utils.Consts import (DB_DATABASE, DB_HOST, DB_PASSWORD, DB_USERNAME, RABBITMQ_QUEUE)
 from Common.Utils.DBUtils import Database
 from Common.Utils.RabbitMQUtils import get_rabbitmq_connection
+from Services.Consumer.HandleMessage import HandleMessage
 
 load_dotenv()
 
@@ -36,7 +36,3 @@ class Consumer:
 
         print("Waiting for messages...")
         self.channel.start_consuming()
-
-
-if __name__ == '__main__':
-    Consumer().start()

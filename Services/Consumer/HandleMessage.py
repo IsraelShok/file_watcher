@@ -1,5 +1,6 @@
 import hashlib
 import os
+import time
 
 from dotenv import load_dotenv
 
@@ -15,9 +16,11 @@ class HandleMessage:
     def __init__(self, db_connection: Database):
         self.db_connection = db_connection
         self.logger_path = os.path.join(os.getenv(FILES_FOLDER), LOGS)
+        print(f'watch folder: {self.logger_path}')
 
     def handle(self, message: dict):
         filepath = message[FILE_PATH]
+        time.sleep(1)
 
         # Handle the message according to the event type
         if message[EVENT_TYPE] == CREATED:
