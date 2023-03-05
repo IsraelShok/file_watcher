@@ -7,8 +7,6 @@ For example:
 
 <img width="759" alt="image" src="https://user-images.githubusercontent.com/18027980/222963889-ad49a598-8ac7-4f4e-8de8-df1cb696a996.png">
 
-
-This is a file watcher application that monitors a specified directory for changes, and logs them to a database and a log file.
 # Getting Started
 To get started with this application, follow the instructions below.
 
