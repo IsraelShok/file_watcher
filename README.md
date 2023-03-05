@@ -38,12 +38,16 @@ FILES_FOLDER = '/files_folder'
 
 Run `docker-compose up --build` to start the application.
 
+You should see 4 containers:
+<img width="1494" alt="image" src="https://user-images.githubusercontent.com/18027980/222965749-b79e527f-aaf0-4666-99d9-ad24dc951f1a.png">
+
+
 # Running the Tests
 To run the tests for this application, navigate to the project directory in your terminal and run the following command:
 `python -m unittest`
 
 # Logs
-To see the logs, in the same watch dir, will be created a "logs" folder that contains "log.txt" and "db_status.csv" (Current status of the DB).
+To see the logs, in the same watch dir, will be created a `logs` folder that contains `log.txt` and `db_status.csv` (Current status of the DB).
 
 Also, there are print logs in each container.
 
@@ -55,6 +59,7 @@ For example:
 
 <img width="807" alt="image" src="https://user-images.githubusercontent.com/18027980/222963543-e7e1f99a-d8e4-4acd-a912-34bb57363467.png">
 
+<img width="1239" alt="image" src="https://user-images.githubusercontent.com/18027980/222965709-c11413f8-5385-4628-944f-ac1847731d35.png">
 
 # Built With
 Python
